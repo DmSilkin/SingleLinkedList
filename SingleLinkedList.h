@@ -145,7 +145,6 @@ public:
         if (this != &rhs) {
             auto rhs_copy(rhs);
             this->swap(rhs_copy);
-            // Реализуйте присваивание самостоятельно
         }
         return *this;
     }
@@ -159,7 +158,7 @@ public:
     // Вставляет элемент value в начало списка за время O(1)
     void PushFront(const Type& value) {
         head_.next_node = new Node(value, head_.next_node);
-        ++size_;	// Реализуйте метод самостоятельно
+        ++size_;	
     }
 
     // Очищает список за время O(N)
@@ -173,16 +172,13 @@ public:
 
     }
 
-
     // Возвращает количество элементов в списке за время O(1)
     [[nodiscard]] size_t GetSize() const noexcept {
-        // Заглушка. Реализуйте метод самостоятельно
         return size_;
     }
 
     // Сообщает, пустой ли список за время O(1)
     [[nodiscard]] bool IsEmpty() const noexcept {
-        // Заглушка. Реализуйте метод самостоятельно
         if (size_ != 0) return false;
         return true;
     }
@@ -239,9 +235,8 @@ public:
     }
 
     // Возвращает итератор, указывающий на позицию перед первым элементом односвязного списка.
-        // Разыменовывать этот итератор нельзя - попытка разыменования приведёт к неопределённому поведению
+    // Разыменовывать этот итератор нельзя - попытка разыменования приведёт к неопределённому поведению
     [[nodiscard]] Iterator before_begin() noexcept {
-        // Реализуйте самостоятельно
         return Iterator{ &head_ };
     }
 
@@ -254,7 +249,6 @@ public:
     // Возвращает константный итератор, указывающий на позицию перед первым элементом односвязного списка.
     // Разыменовывать этот итератор нельзя - попытка разыменования приведёт к неопределённому поведению
     [[nodiscard]] ConstIterator before_begin() const noexcept {
-        // Реализуйте самостоятельно
         return ConstIterator{ const_cast<Node*>(&head_) };
     }
 
@@ -284,7 +278,7 @@ public:
         if (head_.next_node != nullptr) {
             auto next = head_.next_node->next_node;
             delete head_.next_node;
-            head_.next_node = next;// Реализуйте метод самостоятельно
+            head_.next_node = next;
         }
     }
 
@@ -296,7 +290,7 @@ public:
         auto delete_node = pos.node_->next_node;
         auto next_node = delete_node->next_node;
         delete delete_node;
-        pos.node_->next_node = next_node;// Заглушка. Реализуйте метод самостоятельно
+        pos.node_->next_node = next_node;
         return Iterator{ next_node };
     }
 
