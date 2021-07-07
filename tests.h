@@ -218,7 +218,6 @@ void Test2() {
     {
         using namespace std;
         SingleLinkedList<std::string> string_list;
-
         string_list.PushFront("one"s);
         assert(string_list.cbegin()->length() == 3u);
         string_list.begin()->push_back('!');

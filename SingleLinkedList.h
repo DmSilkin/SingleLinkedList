@@ -103,7 +103,6 @@ class SingleLinkedList {
         BasicIterator operator++(int) noexcept {
             auto old(*this);
             ++(*this);
-
             return old;
         }
 
